@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class Main {
@@ -10,12 +11,19 @@ public class Main {
         while (true) {
             System.out.print("Type a word: ");
             String word = reader.nextLine();
-            if (words.contains(word)) {
-                System.out.println("You gave the word " + word + " twice");
+            if (word.isEmpty()) {
                 break;
             } else {
                 words.add(word);
             }
+        }
+
+        Collections.sort(words);
+
+        System.out.println("You typed the following words:");
+        for (String word : words
+        ) {
+            System.out.println(word);
         }
     }
 }
