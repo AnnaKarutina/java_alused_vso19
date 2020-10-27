@@ -1,37 +1,16 @@
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Scanner;
 
 public class Main {
-
-    public static String reverse(String text) {
-        // write your code here
-        int i = text.length() - 1; // last symbol index
-        String reverseText = "";
-        while (i >= 0) {
-            reverseText += text.charAt(i);
-            i--;
-        }
-        return reverseText;
-    }
-
-    public static boolean palindrome(String text) {
-        // write your code here
-        if (text.equals(reverse(text))) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     public static void main(String[] args) {
-        Scanner reader = new Scanner(System.in);
+        Person pekka = new Person("Pekka", 15, 2, 1993);
+        Person martin = new Person("Martin", 1, 3, 1955);
 
-        System.out.println("Type a text: ");
-        String text = reader.nextLine();
-        if (palindrome(text)) {
-            System.out.println("The text is a palindrome!");
-        } else {
-            System.out.println("The text is not a palindrome!");
-        }
+        System.out.println(martin.getName() + " age " + martin.age() + " years");
+        System.out.println(pekka.getName() + " age " + pekka.age() + " years");
+
+        System.out.println(martin.getName() + " is older than " + pekka.getName() + ": " + martin.olderThan(pekka));
+        System.out.println(pekka.getName() + " is older than " + martin.getName() + ": " + pekka.olderThan(martin));
     }
 }
